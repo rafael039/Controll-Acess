@@ -61,7 +61,7 @@ namespace Control_Acess.Controllers
             {
                 _context.Add(usuarioModel);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Create));
             }
             return View(usuarioModel);
         }
@@ -96,22 +96,21 @@ namespace Control_Acess.Controllers
 
             if (ModelState.IsValid)
             {
+                if (!UsuarioModelExists(usuarioModel.id))
+                {
+                    return NotFound();
+                }
+
                 try
                 {
                     _context.Update(usuarioModel);
                     await _context.SaveChangesAsync();
                 }
-                catch (DbUpdateConcurrencyException)
+                catch
                 {
-                    if (!UsuarioModelExists(usuarioModel.id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
+                    return View(usuarioModel);
                 }
+
                 return RedirectToAction(nameof(Index));
             }
             return View(usuarioModel);
@@ -125,8 +124,8 @@ namespace Control_Acess.Controllers
                 return NotFound();
             }
 
-            var usuarioModel = await _context.Usuarios
-                .FirstOrDefaultAsync(m => m.id == id);
+            var usuarioModel = await _context.Usuarios.FirstOrDefaultAsync(m => m.id == id);
+
             if (usuarioModel == null)
             {
                 return NotFound();
@@ -141,8 +140,12 @@ namespace Control_Acess.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var usuarioModel = await _context.Usuarios.FindAsync(id);
+
+            if (usuarioModel == null) return RedirectToAction(nameof(Index));
+
             _context.Usuarios.Remove(usuarioModel);
             await _context.SaveChangesAsync();
+
             return RedirectToAction(nameof(Index));
         }
 
