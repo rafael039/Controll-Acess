@@ -301,3 +301,4 @@ D:\Controll-Acess\Control Acess\obj\Debug\net5.0\Control Acess.dll
 D:\Controll-Acess\Control Acess\obj\Debug\net5.0\ref\Control Acess.dll
 D:\Controll-Acess\Control Acess\obj\Debug\net5.0\Control Acess.pdb
 D:\Controll-Acess\Control Acess\obj\Debug\net5.0\Control Acess.genruntimeconfig.cache
+D:\Controll-Acess\Control Acess\obj\Debug\net5.0\Control Acess.csproj.AssemblyReference.cache
