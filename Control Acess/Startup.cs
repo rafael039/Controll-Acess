@@ -10,6 +10,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Control_Acess.Models;
+using Microsoft.AspNetCore.Authorization;
+using Control_Acess.Permission;
+using Microsoft.AspNetCore.Identity;
 
 namespace Control_Acess
 {
@@ -30,6 +33,15 @@ namespace Control_Acess
 
             services.AddEntityFrameworkNpgsql()
              .AddDbContext<UsuarioContext>(options => options.UseNpgsql(Configuration.GetConnectionString("UsuariosDB")));
+
+            services.AddSingleton<IAuthorizationPolicyProvider, PermissionPolicyProvider>();
+            services.AddScoped<IAuthorizationHandler, PermissionAuthorizationHandler>();
+            //services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddIdentity<IdentityUser, IdentityRole>()
+                    //.AddEntityFrameworkStores<ApplicationDbContext>()
+                    //.AddDefaultUI()
+            .AddDefaultTokenProviders();
+            services.AddControllersWithViews();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
