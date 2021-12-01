@@ -28,31 +28,32 @@ namespace Control_Acess
      }
     */
 
-
-    public async static Task Main(string[] args)
+    public class Program
     {
-        var host = CreateHostBuilder(args).Build();
-        using (var scope = host.Services.CreateScope())
+        public async static Task Main(string[] args)
         {
-            var services = scope.ServiceProvider;
-            var loggerFactory = services.GetRequiredService<ILoggerFactory>();
-            var logger = loggerFactory.CreateLogger("app");
-            try
+            var host = CreateHostBuilder(args).Build();
+            using (var scope = host.Services.CreateScope())
             {
-                var userManager = services.GetRequiredService<UserManager<IdentityUser>>();
-                var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
-                await Seeds.DefaultRoles.SeedAsync(userManager, roleManager);
-                await Seeds.DefaultUsers.SeedBasicUserAsync(userManager, roleManager);
-                await Seeds.DefaultUsers.SeedSuperAdminAsync(userManager, roleManager);
-                logger.LogInformation("Finished Seeding Default Data");
-                logger.LogInformation("Application Starting");
+                var services = scope.ServiceProvider;
+                var loggerFactory = services.GetRequiredService<ILoggerFactory>();
+                var logger = loggerFactory.CreateLogger("app");
+                try
+                {
+                    var userManager = services.GetRequiredService<UserManager<IdentityUser>>();
+                    var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
+                    await Seeds.DefaultRoles.SeedAsync(userManager, roleManager);
+                    await Seeds.DefaultUsers.SeedBasicUserAsync(userManager, roleManager);
+                    await Seeds.DefaultUsers.SeedSuperAdminAsync(userManager, roleManager);
+                    logger.LogInformation("Finished Seeding Default Data");
+                    logger.LogInformation("Application Starting");
+                }
+                catch (Exception ex)
+                {
+                    logger.LogWarning(ex, "An error occurred seeding the DB");
+                }
             }
-            catch (Exception ex)
-            {
-                logger.LogWarning(ex, "An error occurred seeding the DB");
-            }
+            host.Run();
         }
-        host.Run();
     }
-
 }
