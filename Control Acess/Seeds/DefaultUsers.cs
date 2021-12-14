@@ -4,8 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using Control_Acess.Constants;
 
-namespace Control_Acess.Constants
+namespace Control_Acess.Seeds
 {
     public static class DefaultUsers
     {

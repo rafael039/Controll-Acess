@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "nA8EG0nswdtKQoOpm5ftPwidI6ykeWze24rTuB1JAifPTmRzR9FO37lwMLdVvw6wbH9iza21qzfv5xIOquN1kQ==",
+  "dgSpecHash": "1BPpvQlM6t6HiCuI6flqf/jqgcLOciWi3ZOe/jzLP5ddLe0aIqFfcwd4yG7OlTrxzfAuEtZBqtYCQQ0DG56F3g==",
   "success": true,
-  "projectFilePath": "D:\\Controll-Acess\\Control Acess\\Control Acess.csproj",
+  "projectFilePath": "D:\\Controll-Acess\\Control Acess\\Permission Controll.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\rafin\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\rafin\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
