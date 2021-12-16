@@ -7216,9 +7216,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Controll-Acess\\Control Acess\\Control Acess.csproj",
-      "projectName": "Control Acess",
-      "projectPath": "D:\\Controll-Acess\\Control Acess\\Control Acess.csproj",
+      "projectUniqueName": "D:\\Controll-Acess\\Control Acess\\Permission Controll.csproj",
+      "projectName": "Permission Controll",
+      "projectPath": "D:\\Controll-Acess\\Control Acess\\Permission Controll.csproj",
       "packagesPath": "C:\\Users\\rafin\\.nuget\\packages\\",
       "outputPath": "D:\\Controll-Acess\\Control Acess\\obj\\",
       "projectStyle": "PackageReference",
@@ -7296,7 +7296,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
       }
     }
   }
